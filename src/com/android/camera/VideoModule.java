@@ -1154,6 +1154,8 @@ public class VideoModule implements CameraModule,
             mUI.enableShutter(true);
         }
 
+        mUI.applySurfaceChange(VideoUI.SURFACE_STATUS.SURFACE_VIEW);
+
         mUI.initDisplayChangeListener();
         // Initializing it here after the preview is started.
         mUI.initializeZoom(mParameters);
@@ -1338,6 +1340,7 @@ public class VideoModule implements CameraModule,
 
         mUI.collapseCameraControls();
         mUI.removeDisplayChangeListener();
+        mUI.applySurfaceChange(VideoUI.SURFACE_STATUS.HIDE);
     }
 
     @Override
@@ -2769,6 +2772,7 @@ public class VideoModule implements CameraModule,
         }
 
         Log.d(TAG, "Start to switch camera.");
+        mUI.applySurfaceChange(VideoUI.SURFACE_STATUS.HIDE);
         mCameraId = mPendingSwitchCameraId;
         mPendingSwitchCameraId = -1;
         setCameraId(mCameraId);
@@ -2788,6 +2792,7 @@ public class VideoModule implements CameraModule,
         mFocusManager.setParameters(mParameters);
 
         readVideoPreferences();
+        mUI.applySurfaceChange(VideoUI.SURFACE_STATUS.SURFACE_VIEW);
         startPreview();
         initializeVideoSnapshot();
         resizeForPreviewAspectRatio();
