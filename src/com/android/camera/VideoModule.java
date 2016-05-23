@@ -2738,6 +2738,11 @@ public class VideoModule implements CameraModule,
             mActivity.updateStorageSpaceAndHint();
             mActivity.initPowerShutter(mPreferences);
             mActivity.initMaxBrightness(mPreferences);
+
+            // Update the gallery app
+            Intent intent = new Intent("com.android.gallery3d.STORAGE_CHANGE");
+            intent.putExtra("pref_camera_storage_key", Storage.getRoot());
+            mActivity.sendBroadcast(intent);
         }
     }
 
