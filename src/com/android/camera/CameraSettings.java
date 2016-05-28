@@ -888,11 +888,7 @@ public class CameraSettings {
         ListPreference videoHfrMode =
                 group.findPreference(KEY_VIDEO_HIGH_FRAME_RATE);
         ListPreference seeMoreMode = group.findPreference(KEY_SEE_MORE);
-<<<<<<< HEAD
-=======
         ListPreference savePath = group.findPreference(KEY_CAMERA_SAVEPATH);
-        //ListPreference videoEncoder = group.findPreference(KEY_VIDEO_ENCODER);
->>>>>>> 94d9a90... SnapdragonCamera: remove storage menu if no external storage available
 
         // Since the screen could be loaded from different resources, we need
         // to check if the preference is available here
