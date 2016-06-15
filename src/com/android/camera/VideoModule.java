@@ -1047,7 +1047,7 @@ public class VideoModule implements CameraModule,
             return;
         }
         mParameters = mCameraDevice.getParameters();
-        if (mParameters.getSupportedVideoSizes() == null ||
+        if (mParameters.getSupportedVideoSizes().size() == 0 ||
                 isHFREnabled(mProfile.videoFrameWidth, mProfile.videoFrameHeight)) {
             mDesiredPreviewWidth = mProfile.videoFrameWidth;
             mDesiredPreviewHeight = mProfile.videoFrameHeight;
