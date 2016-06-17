@@ -1474,6 +1474,7 @@ public class VideoModule implements CameraModule,
         if (valid) {
             resultCode = Activity.RESULT_OK;
             resultIntent.setData(mCurrentVideoUri);
+            resultIntent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
         } else {
             resultCode = Activity.RESULT_CANCELED;
         }
